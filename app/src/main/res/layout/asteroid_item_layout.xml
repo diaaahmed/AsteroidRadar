@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="asteroid"
+            type="com.udacity.asteroidradar.Asteroid" />
+    </data>
+
+    <!-- We use constraint layout cause it help us control all view in layout-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!-- here we use textview to show asteroid name-->
+        <TextView
+            android:id="@+id/asteroid_text_title"
+            android:text="@{asteroid.codename}"
+            tools:text="Title"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/asteroid_text_close_date_aproche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            tools:text="@string/close_approach_data_title"
+            android:text="@{asteroid.closeApproachDate}"
+            android:textColor="@color/default_text_color"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/asteroid_text_title"
+            app:layout_constraintTop_toBottomOf="@+id/asteroid_text_title" />
+
+        <!-- Imageview help us to show asteroid image-->
+        <ImageView
+            android:id="@+id/asteroid_img_status_hazardous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/asteroid_text_close_date_aproche"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineLeft"
+            app:layout_constraintTop_toTopOf="@+id/asteroid_text_title"
+            app:srcCompat="@drawable/ic_status_potentially_hazardous"
+            android:contentDescription="@{asteroid.codename}"
+            app:statusIcon="@{asteroid.potentiallyHazardous}"/>
+
+        <!-- We use guideline case it help us arrange views -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <!-- We use guideline case it help us arrange views -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="395dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
