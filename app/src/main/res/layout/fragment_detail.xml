@@ -17,7 +17,7 @@
         android:background="@color/app_background">
 
         <ImageView
-            android:contentDescription="@string/image_of_the_day_desc"
+            android:contentDescription="Image of the day"
             android:id="@+id/activity_main_image_of_the_day"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:contentDescription="@string/help_button"
+                        android:contentDescription="Help"
                         android:id="@+id/help_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
